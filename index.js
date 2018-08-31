@@ -83,6 +83,13 @@ MPlayer.prototype = _.extend({
             }.bind(this));
         }
     },
+    sendCommands: function(commands) {
+        if(commands && commands.length) {
+            commands.forEach(function(args, command) {
+                this.player.cmd(command, args);
+            }.bind(this));
+        }
+    },
     openFile: function(file, options) {
         this.player.cmd('stop');
 
